@@ -19,12 +19,14 @@ export default function Home() {
         <form>
            <Input
              placeholder="Digite seu email"
+             type="text"
            />
 
            <Input
              placeholder="Sua senha"
+             type="password"
            />
-           
+
         </form>
       </div>
     </div>
