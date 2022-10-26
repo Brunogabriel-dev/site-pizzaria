@@ -1,6 +1,8 @@
 
+import styles from './styles.module.scss';
+
 export function Input(){
   return(
-    <input type="text" />
+    <input className={styles.input} />
   )
 }
