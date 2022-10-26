@@ -1,9 +1,21 @@
+import { ReactNode, ButtonHTMLAttributes } from 'react'
 import styles from './styles.module.scss';
 
-export function Button(){
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  loading?: boolean;
+  children: ReactNode;
+}
+
+export function Button({ loading, children, ...rest }: ButtonProps){
   return(
-    <button className={styles.button}>
-      <a className={styles.buttonText}>Nome do botao</a>
+    <button 
+    className={styles.button}
+    disabled={loading}
+    {...rest}
+    >
+      <a className={styles.buttonText}>
+        {children}
+      </a>
     </button>
   )
 }

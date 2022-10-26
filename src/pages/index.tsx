@@ -27,8 +27,14 @@ export default function Home() {
              placeholder="Sua senha"
              type="password"
            />
-           
-           <Button/>
+
+           <Button
+             type="submit"
+             loading={false}
+           >
+            Cadastrar
+           </Button>
+             
 
         </form>
       </div>
