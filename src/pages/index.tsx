@@ -4,6 +4,8 @@ import styles from '../../styles/home.module.scss';
 
 import logoImg from '../../public/logo.svg';
 
+import { Input } from '../components/ui/Input'
+
 export default function Home() {
   return (
     <>
@@ -15,7 +17,7 @@ export default function Home() {
 
       <div className={styles.login}>
         <form>
-          <input type="text" />
+           <Input/>
         </form>
       </div>
     </div>
