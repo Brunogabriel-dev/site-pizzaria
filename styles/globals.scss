@@ -32,3 +32,7 @@ a{
 body{
   background: var(--dark-700);
 }
+
+body, input, textarea, select, button{
+  font: 400 1rem sans-serif;
+}
