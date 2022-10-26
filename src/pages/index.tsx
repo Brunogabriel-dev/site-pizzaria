@@ -12,6 +12,12 @@ export default function Home() {
     </Head>
     <div className={styles.containerCenter}>
       <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
+
+      <div className={styles.login}>
+        <form>
+          <input type="text" />
+        </form>
+      </div>
     </div>
     </>
   )
