@@ -32,11 +32,12 @@ export default function Home() {
              type="submit"
              loading={false}
            >
-            Cadastrar
+            Acessar
            </Button>
-             
+          </form>
 
-        </form>
+          <a>Não possui uma conta? Cadastre-se</a>
+
       </div>
     </div>
     </>
