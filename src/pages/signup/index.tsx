@@ -23,6 +23,11 @@ export default function SignUp() {
 
         <form>
            <Input
+             placeholder="Digite seu nome"
+             type="text"
+           />
+
+           <Input
              placeholder="Digite seu email"
              type="text"
            />
@@ -36,12 +41,12 @@ export default function SignUp() {
              type="submit"
              loading={false}
            >
-            Acessar
+            Cadastrar
            </Button>
           </form>
 
           <Link href="/signup">
-             <a className={styles.text}>Não possui uma conta? Cadastre-se</a>
+             <a className={styles.text}>Já possui uma conta? Faça login!</a>
           </Link>
 
 
