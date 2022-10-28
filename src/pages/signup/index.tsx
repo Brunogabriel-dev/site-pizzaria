@@ -13,12 +13,14 @@ export default function SignUp() {
   return (
     <>
     <Head>
-      <title>SujeitoPizza - Faça seu login</title>
+      <title>Faça seu cadastro agora!</title>
     </Head>
     <div className={styles.containerCenter}>
       <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
 
       <div className={styles.login}>
+        <h1>Criando sua conta</h1>
+
         <form>
            <Input
              placeholder="Digite seu email"
