@@ -1,4 +1,23 @@
-.container {
-  color: red;
+
+.contairnerCenter{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--gray-900);
+}
+
+.login{
+  margin-top: 2rem;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+
+
+
 
 }
