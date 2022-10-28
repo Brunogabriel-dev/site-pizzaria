@@ -2,7 +2,8 @@ import { createContext, ReactNode } from 'react';
 
 type AuthContextData = {
   user: UserProps;
-  isAuthenticated: boolean
+  isAuthenticated: boolean;
+  signIn: (credentials: SignInProps) =>
 }
 
 type UserProps = {
@@ -11,4 +12,9 @@ type UserProps = {
   email: string;
 }
 
-const AuthContext = createContext({})
+type SignInProps = {
+  email: string;
+  password: string;
+}
+
+const AuthContext = createContext({} as AuthContextData)
