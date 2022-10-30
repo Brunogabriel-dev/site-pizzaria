@@ -17,4 +17,16 @@ type SignInProps = {
   password: string;
 }
 
+type AuthProviderProps = {
+  children: ReactNode;
+}
+
 const AuthContext = createContext({} as AuthContextData)
+
+export function AuthProvider({ children }: AuthProviderProps){
+  return(
+    <AuthContext.Provider value={{ }}>
+
+    </AuthContext.Provider>
+  )
+}
