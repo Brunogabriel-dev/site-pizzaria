@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useState } from 'react';
 
+import { api } from '../services/apiClient'
+
 import { destroyCookie } from 'nookies'
 import Router from 'next/router';
 
@@ -42,10 +44,18 @@ export function AuthProvider({ children }: AuthProviderProps){
   const [user, setUser] = useState<UserProps>()
   const isAuthenticated = !!user;
 
-
   async function signIn({ email, password }: SignInProps){
-    console.log("DADOS PARA LOGAR", email)
-    console.log("SENHA", password)
+    try{
+      const response = await api.post('/session', {
+        email,
+        password
+      })
+
+      console.log(response.data);
+
+    }catch(err){
+      console.log("ERRO AO ACESSAR ", err)
+    }
   }
 
   return(
