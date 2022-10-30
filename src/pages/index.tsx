@@ -38,7 +38,6 @@ export default function Home() {
 
     await signIn(data)
 
-
     setLoading(false);
   }
 
@@ -68,7 +67,7 @@ export default function Home() {
 
            <Button
              type="submit"
-             loading={false}
+             loading={loading}
            >
             Acessar
            </Button>

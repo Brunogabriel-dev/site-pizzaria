@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Head from 'next/head'
 import Image from 'next/image';
 import styles from '../../../styles/home.module.scss';
@@ -10,6 +12,13 @@ import { Button } from '../../components/ui/Button'
 import Link from 'next/link';
 
 export default function SignUp() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [loading, setLoading] = useState(false);
+
+
   return (
     <>
     <Head>
