@@ -65,6 +65,12 @@ export function AuthProvider({ children }: AuthProviderProps){
       email,
      })
 
+     //Passar para proximas requisiçoes o nosso token
+     api.defaults.headers['Authorization'] = `Bearer ${token}`
+
+     //Redirecionar o user para /dashboard
+     Router.push('/dashboard')
+
 
     }catch(err){
       console.log("ERRO AO ACESSAR ", err)
