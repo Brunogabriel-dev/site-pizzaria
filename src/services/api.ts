@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios'
 import { parseCookies } from 'nookies'
+import { AuthTokenError } from './errors/AuthTokenError'
 
 export function setupAPIClient(ctx = undefined){
   let cookies = parseCookies(ctx);
@@ -19,7 +20,7 @@ export function setupAPIClient(ctx = undefined){
       if(typeof window !== undefined){
         // Chamar a funçao para deslogar o usuario
       }else{
-        
+        return Promise.reject(new AuthTokenError())
       }
     }
   })
