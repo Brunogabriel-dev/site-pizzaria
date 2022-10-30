@@ -2,7 +2,7 @@ import { createContext, ReactNode, useState } from 'react';
 
 import { api } from '../services/apiClient'
 
-import { destroyCookie } from 'nookies'
+import { destroyCookie, setCookie, parseCookies } from 'nookies'
 import Router from 'next/router';
 
 type AuthContextData = {
@@ -50,8 +50,21 @@ export function AuthProvider({ children }: AuthProviderProps){
         email,
         password
       })
+     // console.log(response.data);
 
-      console.log(response.data);
+     const { id, name, token } = response.data;
+
+     setCookie(undefined, '@nextauth.token', token, {
+      maxAge: 60 * 60 * 24 * 30, // Expirar em 1 mes
+      path: "/" // Quais caminhos terao acesso ao cookie
+     })
+
+     setUser({
+      id,
+      name,
+      email,
+     })
+
 
     }catch(err){
       console.log("ERRO AO ACESSAR ", err)
