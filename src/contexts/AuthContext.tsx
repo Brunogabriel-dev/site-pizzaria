@@ -28,12 +28,12 @@ export function AuthProvider({ children }: AuthProviderProps){
   const isAuthenticated = !!user;
 
 
-  function signIn(){
+  async function signIn(){
     alert("CLICOU NO LOGIN")
   }
 
   return(
-    <AuthContext.Provider value={{ }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
       {children}
     </AuthContext.Provider>
   )
