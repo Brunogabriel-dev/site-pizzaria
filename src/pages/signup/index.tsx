@@ -26,8 +26,9 @@ export default function SignUp() {
       return;
     }
 
-  }
+    setLoading(true);
 
+  }
 
   return (
     <>
@@ -64,7 +65,7 @@ export default function SignUp() {
 
            <Button
              type="submit"
-             loading={false}
+             loading={loading}
            >
             Cadastrar
            </Button>
