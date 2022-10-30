@@ -24,6 +24,11 @@ export default function Home() {
   async function handleLogin(event: FormEvent){
     event.preventDefault();
 
+    if(email === '' || password === ''){
+      alert("PREENCHA OS DADOS")
+      return;
+    }
+
     let data = {
       email,
       password
