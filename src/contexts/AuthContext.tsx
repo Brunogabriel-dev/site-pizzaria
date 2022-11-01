@@ -5,11 +5,13 @@ import { api } from '../services/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
 import Router from 'next/router';
 
+
 type AuthContextData = {
   user: UserProps;
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
   signOut: () => void;
+  signUp: (credentials: SignUpProps) => Promise<void>;
 }
 
 type UserProps = {
@@ -22,6 +24,13 @@ type SignInProps = {
   email: string;
   password: string;
 }
+
+type SignUpProps = {
+  name: string;
+  email: string;
+  password: string;
+}
+
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -36,7 +45,6 @@ export function signOut(){
     Router.push('/')
   }catch{
     console.log('erro ao deslogar')
-
   }
 }
 
@@ -77,8 +85,13 @@ export function AuthProvider({ children }: AuthProviderProps){
     }
   }
 
+
+  async function signUp({ name, email, password}: SignUpProps){
+
+  }
+
   return(
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut, signUp }}>
       {children}
     </AuthContext.Provider>
   )
