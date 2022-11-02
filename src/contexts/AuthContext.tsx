@@ -85,9 +85,22 @@ export function AuthProvider({ children }: AuthProviderProps){
     }
   }
 
-
   async function signUp({ name, email, password}: SignUpProps){
+    try{
 
+      const response = await api.post('/users', {
+        name,
+        email,
+        password
+      })
+
+      console.log("CADASTRADO COM SUCESSO!")
+
+      Router.push('/')
+
+    }catch(err){
+      console.log("erro ao cadastrar ", err)
+    }
   }
 
   return(
