@@ -14,7 +14,7 @@ import { AuthContext } from '../../contexts/AuthContext'
 import Link from 'next/link';
 
 export default function SignUp() {
-  const {} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -31,6 +31,16 @@ export default function SignUp() {
     }
 
     setLoading(true);
+
+    let data = {
+      name,
+      email,
+      password
+    }
+
+    await signUp(data)
+
+    setLoading(false);
 
   }
 
