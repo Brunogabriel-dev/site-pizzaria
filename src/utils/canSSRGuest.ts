@@ -2,6 +2,8 @@ import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult
 import { parseCookies } from 'nookies'
 
 //funcao para paginas que só pode ser acessadas por visitantes
-export function canSSRGuest() {
-  
+export function canSSRGuest<p>(fn: GetServerSideProps<p>) {
+  return async (ctx: GetServerSidePropsContext ) => {
+
+  }
 }
