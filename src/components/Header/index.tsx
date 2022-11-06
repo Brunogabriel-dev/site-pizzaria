@@ -1,7 +1,10 @@
+import { useContext } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 
 import { FiLogOut } from 'react-icons/fi'
+
+import { AuthContext } from '../../contexts/AuthContext'
 
 export function Header(){
   return(

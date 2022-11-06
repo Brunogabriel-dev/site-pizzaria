@@ -43,9 +43,10 @@
     margin-left: 2rem;
     background: transparent;
     border: 0;
+    transition: transform 0.8s;
 
     &:hover{
-      transform: scale();
+      transform: scale(1.2);
     }
   }
 
