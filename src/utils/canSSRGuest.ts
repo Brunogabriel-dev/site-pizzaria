@@ -11,7 +11,8 @@ export function canSSRGuest<p>(fn: GetServerSideProps<p>) {
     if(cookies['@nextauth.token']){
       return {
         redirect:{
-          destination: '/dashboard'
+          destination: '/dashboard',
+          permanent: false,
         }
       }
     }
