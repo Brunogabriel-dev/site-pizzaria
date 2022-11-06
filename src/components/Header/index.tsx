@@ -11,7 +11,7 @@ export function Header(){
         <img src="/logo.svg" width={190} height={60} />
         </Link>
 
-        <nav>
+        <nav className={styles.menuNav}>
           <Link href="/category">
           <a>Categoria</a>
           </Link>
