@@ -60,7 +60,17 @@ export function AuthProvider({ children }: AuthProviderProps){
 
     if(token){
       api.get('/me').then(response => {
-        const { id, name, email } = response;
+        const { id, name, email } = response.data;
+
+        setUser({
+          id,
+          name,
+          email
+        })
+
+      })
+      .catch(() => {
+        // Se deu erro deslogamos o user.
       })
     }
     
