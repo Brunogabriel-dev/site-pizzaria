@@ -14,12 +14,17 @@ export default function Category(){
       <main className={styles.container}>
         <h1>Cadastrar categorias</h1>
 
-        <form>
+        <form className={styles.form}>
           <input 
           type="text"
           placeholder="Digite o nome da categoria"
           className={styles.input}
            />
+
+           <button className={styles.buttonAdd} type="submit">
+            Cadastrar
+           </button>
+
         </form>
 
       </main>
