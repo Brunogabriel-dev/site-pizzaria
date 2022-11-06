@@ -1,6 +1,8 @@
 import styles from './styles.module.scss'
 import Link from 'next/link'
 
+import { FiLogOut } from 'react-icons/fi'
+
 export function Header(){
   return(
     <header className={styles.headerContainer}>
@@ -13,9 +15,15 @@ export function Header(){
           <Link href="/category">
           <a>Categoria</a>
           </Link>
+
+          <Link href="/product">
+            <a>Cardapio</a>
+          </Link>
+
+          <button>
+            <FiLogOut color="#fff" size={24} />
+          </button>
         </nav>
-
-
 
       </div>
     </header>
