@@ -22,6 +22,7 @@ export default function Category(){
     })
 
     toast.success('Categoria cadastrada com sucesso!')
+    setName('');
 
   }
 
