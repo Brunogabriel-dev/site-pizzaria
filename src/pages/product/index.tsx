@@ -14,7 +14,6 @@ export default function Product(){
   const [avatarUrl, setAvatarUrl] = useState('');
   const [imageAvatar, setImageAvatar] = useState(null);
 
-
   return(
     <>
     <Head>
@@ -35,12 +34,14 @@ export default function Product(){
 
             <input type="file" accept="image/png, image/jpeg"/>
 
-            <img
-             src={avatarUrl} 
-             alt="Foto do produto"
-             width={250}
-             height={250} 
+            {avatarUrl && (
+                <img
+                  src={avatarUrl}
+                  alt="Foto do produto"
+                  width={250}
+                  height={250}
             />
+            )}
 
 
           </label>
