@@ -14,12 +14,17 @@ type ItemProps = {
   name: string;
 }
 
+interface CategoryProps{
+  categoryList: ItemProps[];
+}
 
-
-export default function Product({ categoryList }){
+export default function Product({ categoryList }: CategoryProps){
 
   const [avatarUrl, setAvatarUrl] = useState('');
   const [imageAvatar, setImageAvatar] = useState(null);
+
+  const [categories, setCategories] = useState(categoryList || [])
+  const [categorySelected, setCategorySelected] = useState(0)
 
 
   function handleFile(e: ChangeEvent<HTMLInputElement>){
@@ -76,13 +81,15 @@ export default function Product({ categoryList }){
 
           </label>
 
-          <select>
-            <option>
-              Bebida
-            </option>
-            <option>
-              Pizzas
-            </option>
+
+          <select value={categorySelected}>
+            {categories.map((item, index) => {
+              return(
+                <option key={item.id} value={index}>
+                  {item.name}
+                </option>
+              )
+            })}
           </select>
 
           <input 
@@ -119,7 +126,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
   const apliClient = setupAPIClient(ctx)
 
   const response = await apliClient.get('/category');
-  //console.log(response.data)
 
   return{
     props: {
