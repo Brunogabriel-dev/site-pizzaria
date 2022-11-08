@@ -48,6 +48,15 @@ export default function Product({ categoryList }: CategoryProps){
 
   }
 
+//Quando você seleciona uma nova categoria na lista
+  function handleChangeCategory(event){
+   // console.log("POSIÇAO DA CATEGORIA SELECIONADA ", event.target.value)
+   //console.log('Categoria selecionada ', categories[event.target.value])
+
+   setCategorySelected(event.target.value)
+
+  }
+
   return(
     <>
     <Head>
@@ -78,11 +87,10 @@ export default function Product({ categoryList }: CategoryProps){
                 />
             )}
 
-
           </label>
 
 
-          <select value={categorySelected}>
+          <select value={categorySelected} onChange={handleChangeCategory}>
             {categories.map((item, index) => {
               return(
                 <option key={item.id} value={index}>
