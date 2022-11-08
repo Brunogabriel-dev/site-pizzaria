@@ -32,7 +32,7 @@ export default function Product(){
       setImageAvatar(image);
       setAvatarUrl(URL.createObjectURL(e.target.files[0]))
     }
-    
+
   }
 
   return(
@@ -50,7 +50,7 @@ export default function Product(){
 
           <label className={styles.labelAvatar}>
             <span>
-              <FiUpload size={25} color="#fff" />
+              <FiUpload size={30} color="#fff" />
             </span>
 
             <input type="file" accept="image/png, image/jpeg" onChange={handleFile} />
