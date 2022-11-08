@@ -7,9 +7,16 @@ import { canSSRAuth } from '../../utils/canSSRAuth'
 
 import { FiUpload } from 'react-icons/fi'
 
+import { setupAPIClient } from '../../services/api'
 
-export default function Product(){
+type ItemProps = {
+  id: string;
+  name: string;
+}
 
+
+
+export default function Product({ categoryList }){
 
   const [avatarUrl, setAvatarUrl] = useState('');
   const [imageAvatar, setImageAvatar] = useState(null);
@@ -26,6 +33,7 @@ export default function Product(){
     if(!image){
       return;
     }
+
 
     if(image.type === 'image/jpeg' || image.type === 'image/png'){
 
@@ -108,8 +116,14 @@ export default function Product(){
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
+  const apliClient = setupAPIClient(ctx)
+
+  const response = await apliClient.get('/category');
+  //console.log(response.data)
 
   return{
-    props: {}
+    props: {
+      categoryList: response.data
+    }
   }
 })
