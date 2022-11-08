@@ -25,7 +25,16 @@ export default function Product(){
             <option>
               Bebida
             </option>
+            <option>
+              Pizzas
+            </option>
           </select>
+
+          <input type="text"
+          placeholder="Digite o nome do produto"
+           />
+
+
 
         </form>
 
