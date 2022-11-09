@@ -78,12 +78,24 @@ export default function Product({ categoryList }: CategoryProps){
       data.append('price', price);
       data.append('description', description);
       data.append('category_id', categories[categorySelected].id);
-      data.append('file')
+      data.append('file', imageAvatar);
+
+      const apiClient = setupAPIClient();
+
+      await apiClient.post('/product', data);
+
+      toast.success('Cadastrado com sucesso!')
 
     }catch(err){
       console.log(err)
       toast.error("Ops erro ao cadastrar!")
     }
+
+    setName('');
+    setPrice('');
+    setDescription('')
+    setImageAvatar(null);
+    setAvatarUrl('');
 
   }
 
