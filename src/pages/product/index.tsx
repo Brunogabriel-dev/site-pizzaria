@@ -20,7 +20,9 @@ interface CategoryProps{
 
 export default function Product({ categoryList }: CategoryProps){
 
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
 
   const [avatarUrl, setAvatarUrl] = useState('');
   const [imageAvatar, setImageAvatar] = useState(null);
@@ -106,6 +108,8 @@ export default function Product({ categoryList }: CategoryProps){
           type="text"
           placeholder="Digite o nome do produto"
           className={styles.input}
+          value={name}
+          onChange={ (e) => setName(e.target.value) }
            />
 
           <input 
