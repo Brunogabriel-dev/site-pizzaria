@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 import Head from "next/head";
 import styles from './styles.module.scss';
 import { Header } from '../../components/Header'
@@ -8,6 +8,8 @@ import { canSSRAuth } from '../../utils/canSSRAuth'
 import { FiUpload } from 'react-icons/fi'
 
 import { setupAPIClient } from '../../services/api'
+
+import { toast } from 'react-toastify'
 
 type ItemProps = {
   id: string;
@@ -61,6 +63,30 @@ export default function Product({ categoryList }: CategoryProps){
 
   }
 
+  async function handleRegister(event: FormEvent){
+    event.preventDefault();
+
+    try{
+      const data = new FormData();
+
+      if(name === '' || price === '' || description === '' ||imageAvatar === null){
+        toast.error("Preencha todos os campos!");
+        return;
+      }
+
+      data.append('name', name);
+      data.append('price', price);
+      data.append('description', description);
+      data.append('category_id', categories[categorySelected].id);
+      data.append('file')
+
+    }catch(err){
+      console.log(err)
+      toast.error("Ops erro ao cadastrar!")
+    }
+
+  }
+
   return(
     <>
     <Head>
@@ -72,7 +98,7 @@ export default function Product({ categoryList }: CategoryProps){
       <main className={styles.container}>
         <h1>Novo produto</h1>
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleRegister}>
 
           <label className={styles.labelAvatar}>
             <span>
