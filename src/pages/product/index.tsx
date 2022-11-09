@@ -116,11 +116,15 @@ export default function Product({ categoryList }: CategoryProps){
           type="text"
           placeholder="Preço do produto"
           className={styles.input}
+          value={price}
+          onChange={ (e) => setPrice(e.target.value) }
           />
 
           <textarea
             placeholder="Descreva seu produto..."
             className={styles.input}
+            value={description}
+            onChange={ (e) => setDescription(e.target.value) }
           />
 
           <button className={styles.buttonAdd} type="submit">
