@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import Head from 'next/head'
 import styles from './styles.module.scss'
@@ -7,7 +8,22 @@ import { FiRefreshCcw } from 'react-icons/fi'
 
 import { setupAPIClient } from '../../services/api'
 
-export default function Dashbord(){
+type OrderProps = {
+  id: string;
+  table: string | number;
+  status: boolean;
+  draft: boolean;
+  name: string | null;
+}
+
+interface HomeProps{
+  orders: OrderProps[];
+}
+
+export default function Dashbord({ orders }: HomeProps){
+
+  const [orderList, setOrderList] = useState(orders || [])
+
   return(
     <>
     <Head>
@@ -49,6 +65,8 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
   const response = await apiClient.get('/orders');
 
   return {
-    props: {}
+    props: {
+      orders: response.data
+    }
   }
 })
