@@ -1,5 +1,6 @@
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import Head from 'next/head'
+import styles from './styles.module.scss';
 
 import { Header } from '../../components/Header'
 
@@ -12,7 +13,10 @@ export default function Dashbord(){
     <div>
       <Header/>
 
-      <h1>Painel</h1>
+      <main className={styles.container}>
+
+      </main>
+ 
     </div>
     </>
   )
