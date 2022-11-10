@@ -23,6 +23,9 @@ interface HomeProps{
 export default function Dashbord({ orders }: HomeProps){
 
   const [orderList, setOrderList] = useState(orders || [])
+  function handleOpenModalView(){
+    alert("TESTE")
+  }
 
   return(
     <>
@@ -44,13 +47,13 @@ export default function Dashbord({ orders }: HomeProps){
         <article className={styles.listOreders}>
 
           {orderList.map(item => (
-            <section className={styles.orderItem}>
-            <button>
+            <section key={item.id} className={styles.orderItem}>
+            <button onClick={ () => handleOpenModalView() }>
               <div className={styles.tag}></div>
-              <span>Mesa 30</span>
+              <span>Mesa {item.table}</span>
             </button>
           </section>
-          
+
           ))}
 
         </article>
