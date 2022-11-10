@@ -43,12 +43,15 @@ export default function Dashbord({ orders }: HomeProps){
 
         <article className={styles.listOreders}>
 
-          <section className={styles.orderItem}>
+          {orderList.map(item => (
+            <section className={styles.orderItem}>
             <button>
               <div className={styles.tag}></div>
               <span>Mesa 30</span>
             </button>
           </section>
+          
+          ))}
 
         </article>
 
