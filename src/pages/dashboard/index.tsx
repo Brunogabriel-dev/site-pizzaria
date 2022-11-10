@@ -23,7 +23,7 @@ export default function Dashbord(){
           </button>
         </div>
 
-        <article className={styles.listOrders}>
+        <article className={styles.listOreders}>
 
           <section className={styles.orderItem}>
             <button>
