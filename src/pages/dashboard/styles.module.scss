@@ -45,5 +45,15 @@
     color: var(--white);
     height: 60px;
     align-items: center;
+    display: flex;
   }
+
+}
+
+.tag{
+  width: 9px;
+  background-color: var(--green-900);
+  height: 60px;
+  border-radius: 6px 0 0 0.3rem;
+  margin-right: 1rem;
 }
