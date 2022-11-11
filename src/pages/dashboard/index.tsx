@@ -49,11 +49,11 @@ export default function Dashbord({ orders }: HomeProps){
 
           {orderList.map(item => (
             <section key={item.id} className={styles.orderItem}>
-            <button onClick={ () => handleOpenModalView(item.id) }>
-              <div className={styles.tag}></div>
-              <span>Mesa {item.table}</span>
-            </button>
-          </section>
+              <button onClick={ () => handleOpenModalView(item. id) }>
+                <div className={styles.tag}></div>
+                <span>Mesa {item.table}</span>
+              </button>
+           </section>
 
           ))}
 
@@ -66,14 +66,3 @@ export default function Dashbord({ orders }: HomeProps){
   )
 }
 
-export const getServerSideProps = canSSRAuth(async (ctx) => {
-  const apiClient = setupAPIClient(ctx);
-
-  const response = await apiClient.get('/orders');
-
-  return {
-    props: {
-      orders:  response.data
-    }
-  }
-})
