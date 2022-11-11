@@ -7,6 +7,7 @@ import { Header } from '../../components/Header'
 import { FiRefreshCcw } from 'react-icons/fi'
 
 import { setupAPIClient } from '../../services/api'
+import Modal from 'react-modal';
 
 type OrderProps = {
   id: string;
@@ -27,6 +28,8 @@ export default function Dashbord({ orders }: HomeProps){
   function handleOpenModalView(id: string){
     alert("ID CLICADO " + id)
   }
+
+  Modal.setAppElement('#__next')
 
   return(
     <>
