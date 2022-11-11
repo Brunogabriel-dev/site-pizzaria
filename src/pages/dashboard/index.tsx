@@ -24,6 +24,18 @@ interface HomeProps{
 type OrderItemProps = {
   id: string;
   amount: number;
+  order_id: string;
+  product_id: string;
+  product:{
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    banner: string;
+  }
+  order:{
+    
+  }
 }
 
 export default function Dashbord({ orders }: HomeProps){
