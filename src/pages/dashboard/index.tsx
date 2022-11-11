@@ -73,7 +73,7 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
 
   return {
     props: {
-      orders: response.data
+      orders:  response.data
     }
   }
 })
