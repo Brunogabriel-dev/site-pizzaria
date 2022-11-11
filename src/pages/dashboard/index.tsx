@@ -21,9 +21,17 @@ interface HomeProps{
   orders: OrderProps[];
 }
 
+type OrderItemProps = {
+  id: string;
+  amount: number;
+}
+
 export default function Dashbord({ orders }: HomeProps){
 
   const [orderList, setOrderList] = useState(orders || [])
+
+  const [modalItem, setModalItem] = useState()
+  const [modalVisible, setModalVisible] = useState(false);
 
   function handleOpenModalView(id: string){
     alert("ID CLICADO " + id)
