@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import styles from './styles.module.scss'
+import styles from './style.module.scss'
 
 import { FiX } from 'react-icons/fi'
 
@@ -35,10 +35,22 @@ export function ModalOrder({ isOpen, onRequestClose, order}: ModalOrderProps){
 
       <button
       type="button"
-      
+      onClick={onRequestClose}
+      className="react-modal-close"
+      style={{ background: 'transparent', border:0 }}
       >
+        <FiX size={45} color="#f34748" />
 
       </button>
+
+      <div className={styles.container}>
+
+        <h2>Detalhes do pedido</h2>
+        <span className={styles.table}></span>
+        mesa: {order [0].order.table}
+
+
+      </div>
 
    </Modal>
   )

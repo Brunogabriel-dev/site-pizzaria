@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import Head from 'next/head'
-import styles from './styles.module.scss'
+import styles from 'styles.module.scss'
 
 import { Header } from '../../components/Header'
 import { FiRefreshCcw } from 'react-icons/fi'
@@ -10,7 +10,7 @@ import { setupAPIClient } from '../../services/api'
 
 import { ModalOrder } from '../../components/ModalOrder'
 
-import Modal from 'react-modal';
+import Modal from 'react-modal'
 
 type OrderProps = {
   id: string;
@@ -106,7 +106,9 @@ export default function Dashbord({ orders }: HomeProps){
 
       { modalVisible && (
         <ModalOrder
-        
+          isOpen={modalVisible}
+          onRequestClose={handleCloseModal}
+          order={modalItem}
         />
       )}
  
