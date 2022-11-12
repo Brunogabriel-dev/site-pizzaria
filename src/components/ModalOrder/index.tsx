@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import styles from './style.module.scss'
+import styles from './style.module.scss';
 
 import { FiX } from 'react-icons/fi'
 
@@ -11,7 +11,7 @@ interface ModalOrderProps{
   order: OrderItemProps[];
 }
 
-export function ModalOrder({ isOpen, onRequestClose, order}: ModalOrderProps){
+export function ModalOrder({ isOpen, onRequestClose, order }: ModalOrderProps){
 
   const customStyles = {
     content:{
@@ -46,8 +46,17 @@ export function ModalOrder({ isOpen, onRequestClose, order}: ModalOrderProps){
       <div className={styles.container}>
 
         <h2>Detalhes do pedido</h2>
-        <span className={styles.table}></span>
-        mesa: {order [0].order.table}
+        <span className={styles.table}>
+        Mesa: <strong>{order[0].order.table}</strong>
+        </span>
+
+        {order.map(item => {
+          <section key={item.id} className={styles.containerItem}>
+            <span>{item.amount} - <strong>{item.product.name}</strong>{item.product.name}</span>
+            <span className={styles.description}>{item.product.description}</span>
+
+          </section>
+        })}
 
 
       </div>

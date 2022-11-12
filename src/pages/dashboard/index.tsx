@@ -108,7 +108,8 @@ export default function Dashbord({ orders }: HomeProps){
         <ModalOrder
           isOpen={modalVisible}
           onRequestClose={handleCloseModal}
-          order={modalItem}
+          order { }
+          
         />
       )}
  
@@ -116,4 +117,5 @@ export default function Dashbord({ orders }: HomeProps){
     </>
   )
 }
+
 
