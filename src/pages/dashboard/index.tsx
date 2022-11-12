@@ -7,6 +7,9 @@ import { Header } from '../../components/Header'
 import { FiRefreshCcw } from 'react-icons/fi'
 
 import { setupAPIClient } from '../../services/api'
+
+import { ModalOrder } from '../../components/ModalOrder'
+
 import Modal from 'react-modal';
 
 type OrderProps = {
