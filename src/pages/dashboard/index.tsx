@@ -21,7 +21,7 @@ interface HomeProps{
   orders: OrderProps[];
 }
 
-type OrderItemProps = {
+export type OrderItemProps = {
   id: string;
   amount: number;
   order_id: string;
@@ -34,7 +34,10 @@ type OrderItemProps = {
     banner: string;
   }
   order:{
-    
+    id: string;
+    table: string | number;
+    status: boolean;
+    name: string | null;
   }
 }
 
@@ -42,11 +45,14 @@ export default function Dashbord({ orders }: HomeProps){
 
   const [orderList, setOrderList] = useState(orders || [])
 
-  const [modalItem, setModalItem] = useState()
+  const [modalItem, setModalItem] = useState<OrderItemProps>()
   const [modalVisible, setModalVisible] = useState(false);
 
-  function handleOpenModalView(id: string){
-    alert("ID CLICADO " + id)
+  async function handleOpenModalView(id: string){
+    
+    const apiClient = setupAPIClient();
+
+    const response = await apiClient.get('/order/detail')
   }
 
   Modal.setAppElement('#__next')
