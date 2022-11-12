@@ -48,11 +48,22 @@ export default function Dashbord({ orders }: HomeProps){
   const [modalItem, setModalItem] = useState<OrderItemProps>()
   const [modalVisible, setModalVisible] = useState(false);
 
+  function handleCloseModal(){
+    setModalVisible(false);
+  }
+
   async function handleOpenModalView(id: string){
     
     const apiClient = setupAPIClient();
 
-    const response = await apiClient.get('/order/detail')
+    const response = await apiClient.get('/order/detail', {
+      params:{
+        order_id: id,
+      }
+    })
+
+    setModalItem(response.data);
+    setModalVisible(true);
   }
 
   Modal.setAppElement('#__next')
